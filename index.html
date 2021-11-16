@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Panel </title>
+  <link rel='icon' type='image/x-icon' href='../assets/img/favicon.png'>
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="assets/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-select/css/select.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Custome style -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/agent-pannel.css">
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+      </ul>
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <!-- Navbar Search -->
+        <li class="nav-item">
+          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+            <i class="fas fa-search"></i>
+          </a>
+          <div class="navbar-search-block">
+            <form class="form-inline">
+              <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                  <button class="btn btn-navbar" type="submit">
+                    <i class="fas fa-search"></i>
+                  </button>
+                  <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </li>
+
+        <!-- Messages Dropdown Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-comments"></i>
+            <span class="badge badge-danger navbar-badge">3</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    Brad Diesel
+                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">Call me whenever you can...</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    John Pierce
+                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">I got your message bro</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    Nora Silvester
+                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">The subject goes here</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+          </div>
+        </li>
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-bell"></i>
+            <span class="badge badge-warning navbar-badge">15</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-item dropdown-header">15 Notifications</span>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-envelope mr-2"></i> 4 new messages
+              <span class="float-right text-muted text-sm">3 mins</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-users mr-2"></i> 8 friend requests
+              <span class="float-right text-muted text-sm">12 hours</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-file mr-2"></i> 3 new reports
+              <span class="float-right text-muted text-sm">2 days</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+          </div>
+        </li>
+
+        <li class="">
+          <a class="nav-link" href="../logout.php">
+            <i class="fas fa-power-off" style="color: indianred;"></i>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li> -->
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-link">
+        <span class="brand-image elevation-3" style="opacity: .8">Logo</span>
+        <span class="brand-logo elevation-3" style="opacity: .8">Logo</span>
+        <span class="brand-text font-weight-light">&nbsp;</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <!-- <div class="image">
+      <img src="../assets/client_logo/Metropolis_20211102_120045.png" class="img-circle elevation-2" alt="User Image">
+      </div> -->
+          <div class="info">
+            <a href="#" class="d-block">Welcome <span style="color:#c77027;">
+                Krunal</span></a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li class="nav-item">
+              <a href="../agent/agent_pannel.php" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../agent/dialer.php" class="nav-link active">
+                <i class="nav-icon fas fa-phone-alt"></i>
+                <p>
+                  Dialer
+                </p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- check user selected campaign -->
+        <div class="text-center mt-5">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-default active">
+              <input type="radio" class="vaani_action" name="options" id="readybtn" autocomplete="off" value="ready"
+                onclick="agent_activity_update(this)"><i class="fas fa-play"></i> Ready
+            </label>
+            <label class="btn btn-default">
+              <input type="radio" class="vaani_action" name="options" id="pasueBtn" autocomplete="off" value="pause"
+                onclick="agent_activity_update(this)"><i class="fas fa-pause"></i> Pause
+            </label>
+          </div>
+        </div>
+        <!-- end campaign check here -->
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+      <div class="alert notification-pop" id="msg"></div>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-3 col-sm-4">
+            <!-- 
+              For keypad white bg use class = "dialer-box"
+              For on connenting or connected use class = "call-connent"
+            -->
+            <div class="sip-phone dialer-box">
+              <!-- keypad  -->
+              <div class="keypad-content">
+                <div class="add-contact">
+                  <a href="#"><i class="fas fa-address-book"></i> Add Contact</a>
+                </div>
+                <form class="call">
+                  <div class="dialer-wrap">
+                    <input id="dialerInput" class="dialer-display" type="text" maxlength="12" autofocus autocomplete="off">
+                    <div class="grid-item tran number">1</div>
+                    <div class="grid-item tran number">2</div>
+                    <div class="grid-item tran number">3</div>
+                    <div class="grid-item tran number">4</div>
+                    <div class="grid-item tran number">5</div>
+                    <div class="grid-item tran number">6</div>
+                    <div class="grid-item tran number">7</div>
+                    <div class="grid-item tran number">8</div>
+                    <div class="grid-item tran number">9</div>
+                    <div class="grid-item tran symbol">*</div>
+                    <div class="grid-item tran number">0</div>
+                    <div class="grid-item tran symbol d-none">#</div>
+                    <div class="grid-item tran remove-btn"><i class="fas fa-backspace"></i></div>
+                  </div>
+                  <div onclick="callDialedNumber()" class="grid-item call-icon">
+                      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone-alt" class="svg-inline--fa fa-phone-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                          <path fill="currentColor" d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z">
+                          </path>
+                      </svg>
+                    </div>
+                </form> 
+              </div>
+      
+              <!-- Connenting to the call  -->
+              <div class="call-connection" style="display:none;">
+                <div class="dialed-number">
+                  1234567890
+                </div>
+                <div class="connection-time">
+                  connecting...
+                    <!-- Connected <span id="minute-box">00</span>: <span id="second-box">00</span>  -->
+                </div>
+      
+                <!-- SIP phone action buttons -->
+                <div class="sip-phone-action-btns-container disabled">
+                  <div class="row mb-3">
+                    <div class="col-4">
+                      <a href="#" class="sip-phone-action-btns-box">
+                        <i class="fas fa-microphone-alt-slash"></i>
+                      </a>
+                      Mute
+                    </div>
+                    <div class="col-4">
+                      <a href="#" class="sip-phone-action-btns-box">
+                        <i class="ion ion-ios-keypad"></i>
+                      </a>
+                      Keypad
+                    </div>
+                    <div class="col-4">
+                      <a href="#" class="sip-phone-action-btns-box">
+                        <i class="fas fa-pause-circle"></i>
+                      </a>
+                      Hold
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="#" class="sip-phone-action-btns-box">
+                        <i class="fas fa-users"></i>
+                      </a>
+                      Conference
+                    </div>
+                    <div class="col-4">
+                      <a href="#" class="sip-phone-action-btns-box">
+                        <i class="fas fa-exchange-alt"></i>
+                      </a>
+                      Transfer
+                    </div>
+                    <div class="col-4">
+                      <a href="#" class="sip-phone-action-btns-box">
+                        <i class="fas fa-user-friends"></i>
+                      </a>
+                      Consult
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="call-icon">
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone-alt" class="svg-inline--fa fa-phone-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                      <path fill="currentColor" d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z">
+                      </path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-9 col-sm-8">
+      
+            <!-- image  -->
+            <div id="agentDailerImgBox">
+              <div class="card mt-2">
+                <div class="agent-box">
+                  <img src="assets/img/agent-male.gif" alt="agent">
+                  <div class="agent-text">
+                    <p class="line-1 anim-typewriter">I'm ready to take a call</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Form  -->
+            <div id="crmFrom" style="display:none;">
+              <!-- Content Header (Page header) -->
+              <div class="content-header">
+                <div class="container-fluid">
+                  <h1 class="m-0">Customer Information</h1>
+                </div><!-- /.container-fluid -->
+              </div>
+      
+              <!-- Main content -->
+              <div class="content">
+                <div class="">
+                  <div class="card card-primary">
+                    <form autocomplete="off">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-xl-4 col-sm-6">
+                            <div class="form-group">
+                              <input type="text" id="cust_name" value="" name="cust_name" class="form-control" placeholder="Customer Name" required>
+                              <label class="form-label" for="">Customer Name</label>
+                              <div class="invalid-feedback1 error" id="error"></div>
+                            </div>
+                          </div>
+      
+                          <div class="col-xl-4 col-sm-6">
+                            <div class="form-group">
+                              <input type="text" id="cust_name" value="" name="cust_name" class="form-control" placeholder="Customer contact number" required>
+                              <label class="form-label" for="">Customer contact number</label>
+                              <div class="invalid-feedback1 error" id="error"></div>
+                            </div>
+                          </div>
+      
+                          <div class="col-xl-4 col-sm-6">
+                            <div class="form-group">
+                              <input type="text" id="cust_name" value="" name="cust_name" class="form-control" placeholder="Customer contact number" required>
+                              <label class="form-label" for="">Customer contact number</label>
+                              <div class="invalid-feedback1 error" id="error"></div>
+                            </div>
+                          </div>
+      
+                          <div class="col-xl-4 col-sm-6">
+                            <div class="form-group">
+                              <input type="text" id="cust_name" value="" name="cust_name" class="form-control" placeholder="Preferred City" required>
+                              <label class="form-label" for="">Preferred City</label>
+                              <div class="invalid-feedback1 error" id="error"></div>
+                            </div>
+                          </div>
+      
+                          <div class="col-xl-4 col-sm-6">
+                            <div class="form-group">
+                              <input type="text" id="cust_name" value="" name="cust_name" class="form-control" placeholder="Customer Status" required>
+                              <label class="form-label" for="">Customer Status</label>
+                              <div class="invalid-feedback1 error" id="error"></div>
+                            </div>
+                          </div>
+      
+                          <div class="col-xl-4 col-sm-6">
+                            <div class="form-group">
+                              <select id="Disposition" class="form-control" onchange="getdisposition()" name="Disposition" required="">
+                                <option value=""> --Select-- </option>   
+                                <option value="Successful_Contact" data-id="CL">Successful_Contact</option>
+                                <option value="Unsuccessful_Contact" data-id="ST">Unsuccessful_Contact</option>   
+                              </select>
+                              <label class="form-label" for="">Disposition</label>
+                              <div class="invalid-feedback1 error" id="error"></div>
+                            </div>
+                          </div>
+      
+                          <div class="col-sm-12">
+                            <div class="form-group">
+                              <textarea class="form-control" id="remark" rows="4" cols="10" name="remark" required=""></textarea>
+                              <label class="form-label" for="">Remark</label>
+                              <div class="invalid-feedback1 error" id="error"></div>
+                            </div>
+                          </div>
+      
+                          <div class="col-sm-12">
+                            <div class="form-group text-center">
+                              <input id="history" type="button" class="btn btn-info" value="History">
+                              <input id="check" type="submit" class="btn btn-primary" value="Submit">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2021 <a href="#">eDAS</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <!-- <b>Version</b> 3.2.0-rc -->
+      </div>
+    </footer>
+  </div>
+  <!-- ./wrapper -->
+
+
+  <!-- REQUIRED SCRIPTS -->
+
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE -->
+  <script src="dist/js/adminlte.js"></script>
+
+  <!-- agent crm purposes -->
+  <script src="assets/js/agent_script.js"></script>
+
+  <script>
+    $("#dialerInput").keypress(function (e) {
+      // alert("Hi");
+      var charCode = (e.which) ? e.which : event.keyCode    
+      if (String.fromCharCode(charCode).match(/[^0-9]/g))    
+      return false;
+    });
+  
+    $(".number").click(function (event) {
+      let text = $(this).text();
+      var val = $('#dialerInput').val();
+      if (val.length < 10) {
+        $("#dialerInput").val(val+text).focus();
+      }
+    });
+  
+    function phoneValidation() {
+      var val = $('#dialerInput').val();
+      if (val.length < 10) {
+        notification("#msg", "Please enter valid number", "alert-danger");
+      }else{
+        notification("#msg", "Connenting...", "alert-warning");
+        $(".keypad-content, #agentDailerImgBox").hide();
+        $(".call-connection").show();
+        $(".sip-phone").removeClass("dialer-box");
+        $(".sip-phone").addClass("call-connent buzzing");
+        $(".dialed-number").html(val);
+        $("#crmFrom").slideDown();
+  
+        setTimeout(function(){ 
+          $(".connection-time").html('Connected <span id="minute-box">00</span>: <span id="second-box">00</span>');
+          $('.sip-phone').removeClass("buzzing");
+          $('.sip-phone-action-btns-container').removeClass("disabled");
+          notification("#msg", "Call connected", "alert-success");
+        }, 5000);
+      } 
+    }
+  
+    $("#dialerInput").keypress(function(event){
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+      if(keycode == '13'){ 
+        phoneValidation();  
+      }
+    });
+  
+    function callDialedNumber() {
+      phoneValidation(); 
+    }
+  
+    $(".remove-btn").click(function () {
+      var val = $('#dialerInput').val();
+      var tmp= val.slice(0,-1);
+      $("#dialerInput").val(tmp).focus();
+    });
+  
+    // Timer 
+    let counter = 0;
+    let seconds = "00";
+    let minutes = "00";
+    const getTimerMinutes = (counter) => {
+      let minuteCounter = Math.floor(counter / 60);
+      return minuteCounter < 10 ? `0${minuteCounter}` : `${minuteCounter}`;
+    };
+  
+    const getTimerSeconds = (counter) => {
+      let secondCounter = counter % 60;
+      document.getElementById("second-box").innerHtml =
+        secondCounter < 10 ? `0${secondCounter}` : `${secondCounter}`;
+      return secondCounter < 10 ? `0${secondCounter}` : `${secondCounter}`;
+    };
+    const setCount = () => {
+      console.log("here");
+      seconds = getTimerSeconds(counter);
+      minutes = getTimerMinutes(counter);
+  
+      document.getElementById("minute-box").innerHtml = seconds;
+      counter = counter + 1;
+    };
+  
+    var intervalId = window.setInterval(function () {
+      seconds = getTimerSeconds(counter);
+      minutes = getTimerMinutes(counter);
+      document.getElementById("minute-box").innerHTML = minutes;
+      document.getElementById("second-box").innerHTML = seconds;
+      counter = counter + 1;
+    }, 1000);
+  
+  </script>
+</body>
+
+</html>
