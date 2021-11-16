@@ -461,8 +461,8 @@ audio{width:220px;}
 
 /* Animation */
 .anim-typewriter{
-animation: typewriter 8s steps(44) 1s infinite normal both,
-           blinkTextCursor 500ms steps(44) infinite normal;
+animation: typewriter 8s steps(27) 1s infinite normal both,
+           blinkTextCursor 500ms steps(27) infinite normal;
 }
 @keyframes typewriter{
 0%{width: 0;}
