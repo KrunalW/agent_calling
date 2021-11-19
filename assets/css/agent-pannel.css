@@ -1,3 +1,5 @@
+::-webkit-scrollbar{display: none;  /* Chrome */}
+*{-ms-overflow-style: none;  /* IE and Edge */  scrollbar-width: none;  /* Firefox */}
 .display-panel{display: flex; align-items: stretch; height: 100vh;}
 .display-panel .left-panel{width: 220px; background: #00092b; position: relative; color: #fff; overflow: auto; display: flex; flex-direction: column; scrollbar-width: none;}
 .display-panel :is(.right-panel,.left-panel)::-webkit-scrollbar{display: none;}
@@ -326,23 +328,30 @@ audio{width:220px;}
 .dark-mode .filter label{color:#fff}
 
 /* SIP Phone  */
-.sip-phone{box-shadow: 2px 2px 5px 1px #a4a4a4, -2px -2px 5px 1px #dadada;margin-top: 10px;border-radius: 25px;padding: 20px 10px;margin-bottom: 20px;border: 5px solid #000;height: 600px;}
-.sip-phone.dialer-box{background-color: #FFF;}
+.sip-phone{box-shadow: 2px 2px 5px 1px #a4a4a4, -2px -2px 5px 1px #dadada;margin-top: 10px;border-radius: 25px;margin-bottom: 20px;border: 5px solid #000;height: 600px;}
+.sip-phone.dialer-box{background-color: #FFF; overflow: hidden;}
 .sip-phone.call-connent{background:linear-gradient(#EA7F24 0%, #082747 100%);}
 /* .keypad-content{} */
 .add-contact{text-align: center;margin: 20px 0;}
 .dialed-number{text-align: center;color: #FFF;font-size: 32px;letter-spacing: 3px;margin-top: 20px;padding: 0;line-height: 1;}
 .connection-time{text-align: center; color: #FFF;}
 .keypad-content{text-align: center;}
+.keypad-content .dialed-number{margin-top: 0;font-size: 18px;letter-spacing: inherit;}
+.keypad-content .connection-time{font-size: 14px;}
 .keypad-content .call-icon{text-align: center;background: #25C565;border-radius: 30px;color: #FFF;padding: 10px 40px;display: inline-block; cursor: pointer;}
 .keypad-content .call-icon svg{width: 25px;height: 25px;}
 .sip-phone-action-btns-container{text-align: center;font-size: 14px;color: #FFF; margin: 80px 0;}
 .sip-phone-action-btns-box{background-color: rgba(40, 65, 92, 0.30);padding: 14px 5px;color: #EA7F24;border-radius: 20px 20px 0;font-size: 34px;display: block; transition: all ease .4s;}
 .sip-phone-action-btns-box:hover{background-color: #FFF;}
+.sip-phone-action-btns-box.active{background-color: rgba(40, 65, 92); color: #FFF;}
+.sip-phone-action-btns-box.active:hover{background-color: #082747;color: #EA7F24;}
 .call-connection{text-align: center;margin: 60px 0 15px;}
 .call-connection .call-icon{text-align: center;background: #C52525;border-radius: 30px;color: #FFF;padding: 12px 45px;display: inline-block; cursor: pointer;}
 .call-connection .call-icon:hover{background: #d06d1a; color: #FFF;}
 .call-connection .call-icon svg{width: 25px;height: 25px;}
+
+.connected-client-box{background-color: #0ba26a;padding: 5px; display: none; cursor: pointer;}
+.sip-phone-content{padding: 15px;}
 
 /* Wobble Top */
 @-webkit-keyframes buzzing {
@@ -461,8 +470,8 @@ audio{width:220px;}
 
 /* Animation */
 .anim-typewriter{
-animation: typewriter 8s steps(27) 1s infinite normal both,
-           blinkTextCursor 500ms steps(27) infinite normal;
+animation: typewriter 8s steps(44) 1s infinite normal both,
+           blinkTextCursor 500ms steps(44) infinite normal;
 }
 @keyframes typewriter{
 0%{width: 0;}
@@ -479,3 +488,9 @@ to{border-right-color: transparent;}
 .agent-box img{width: 400px; float: left;}
 .agent-text{float: left;}
 }
+.search-contact input{border-radius: 10px; background: #e6e6e6;}
+.aplhabet{padding: 5px;border-bottom: 1px solid #ececec;font-weight: 600;background: #FFF;position: sticky;top: 0;z-index: 1;}
+.contact-list-box{padding: 15px;}
+.contact-list-box ul li{position: relative;left: 5px;margin-bottom: 20px; cursor: pointer;}
+.contact-list-box ul li::before{font-family: "Font Awesome 5 Free";content: '\f007';left: -5px;position: relative;background-color: #969393;padding: 2px;border-radius: 50%;height: 27px;text-align: center;color: #FFF;width: 27px;display: inline-block;}
+.contact-list{height: 100vh; overflow-y: auto;}

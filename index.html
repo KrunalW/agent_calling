@@ -241,44 +241,54 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-xl-3 col-sm-4">
-            <!-- 
+            <!-- **********************
               For keypad white bg use class = "dialer-box"
               For on connenting or connected use class = "call-connent"
             -->
             <div class="sip-phone dialer-box">
               <!-- keypad  -->
               <div class="keypad-content">
-                <div class="add-contact">
-                  <a href="#"><i class="fas fa-address-book"></i> Add Contact</a>
-                </div>
-                <form class="call">
-                  <div class="dialer-wrap">
-                    <input id="dialerInput" class="dialer-display" type="text" maxlength="12" autofocus autocomplete="off">
-                    <div class="grid-item tran number">1</div>
-                    <div class="grid-item tran number">2</div>
-                    <div class="grid-item tran number">3</div>
-                    <div class="grid-item tran number">4</div>
-                    <div class="grid-item tran number">5</div>
-                    <div class="grid-item tran number">6</div>
-                    <div class="grid-item tran number">7</div>
-                    <div class="grid-item tran number">8</div>
-                    <div class="grid-item tran number">9</div>
-                    <div class="grid-item tran symbol">*</div>
-                    <div class="grid-item tran number">0</div>
-                    <div class="grid-item tran symbol d-none">#</div>
-                    <div class="grid-item tran remove-btn"><i class="fas fa-backspace"></i></div>
+                <div class="clearfix connected-client-box">
+                  <div class="dialed-number float-left">
+                    <!-- 1234567890 -->
                   </div>
-                  <div onclick="callDialedNumber()" class="grid-item call-icon">
-                      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone-alt" class="svg-inline--fa fa-phone-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                          <path fill="currentColor" d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z">
-                          </path>
-                      </svg>
+                  <div class="connection-time float-right">
+                      <!-- Connected <span id="minute-box">00</span>: <span id="second-box">00</span>  -->
+                  </div>
+                </div>
+                <div class="sip-phone-content">
+                  <div class="add-contact">
+                    <a href="#" onclick="addContact()"><i class="fas fa-address-book"></i> Add Contact</a>
+                  </div>
+                  <form class="call">
+                    <div class="dialer-wrap">
+                      <input id="dialerInput" class="dialer-display" type="text" maxlength="12" autofocus autocomplete="off">
+                      <div class="grid-item tran number">1</div>
+                      <div class="grid-item tran number">2</div>
+                      <div class="grid-item tran number">3</div>
+                      <div class="grid-item tran number">4</div>
+                      <div class="grid-item tran number">5</div>
+                      <div class="grid-item tran number">6</div>
+                      <div class="grid-item tran number">7</div>
+                      <div class="grid-item tran number">8</div>
+                      <div class="grid-item tran number">9</div>
+                      <div class="grid-item tran symbol">*</div>
+                      <div class="grid-item tran number">0</div>
+                      <div class="grid-item tran symbol d-none">#</div>
+                      <div class="grid-item tran remove-btn"><i class="fas fa-backspace"></i></div>
                     </div>
-                </form> 
+                    <div onclick="callDialedNumber()" class="grid-item call-icon">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone-alt" class="svg-inline--fa fa-phone-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path fill="currentColor" d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z">
+                            </path>
+                        </svg>
+                      </div>
+                  </form> 
+                </div>
               </div>
       
               <!-- Connenting to the call  -->
-              <div class="call-connection" style="display:none;">
+              <div class="call-connection sip-phone-content" style="display:none;">
                 <div class="dialed-number">
                   1234567890
                 </div>
@@ -288,22 +298,25 @@
                 </div>
       
                 <!-- SIP phone action buttons -->
+                <!-- ***********************
+                  add or remove class disabled from sip-phone-action-btns-container for disabled
+                 -->
                 <div class="sip-phone-action-btns-container disabled">
                   <div class="row mb-3">
                     <div class="col-4">
-                      <a href="#" class="sip-phone-action-btns-box">
+                      <a href="#" class="sip-phone-action-btns-box sip-phoneBtn">
                         <i class="fas fa-microphone-alt-slash"></i>
                       </a>
                       Mute
                     </div>
                     <div class="col-4">
-                      <a href="#" class="sip-phone-action-btns-box">
+                      <a id="keypadConntectBtn" href="#" class="sip-phone-action-btns-box">
                         <i class="ion ion-ios-keypad"></i>
                       </a>
                       Keypad
                     </div>
                     <div class="col-4">
-                      <a href="#" class="sip-phone-action-btns-box">
+                      <a href="#" class="sip-phone-action-btns-box sip-phoneBtn">
                         <i class="fas fa-pause-circle"></i>
                       </a>
                       Hold
@@ -323,7 +336,7 @@
                       Transfer
                     </div>
                     <div class="col-4">
-                      <a href="#" class="sip-phone-action-btns-box">
+                      <a href="#" class="sip-phone-action-btns-box sip-phoneBtn">
                         <i class="fas fa-user-friends"></i>
                       </a>
                       Consult
@@ -338,8 +351,70 @@
                   </svg>
                 </div>
               </div>
+
+              <!-- Add Contact Box  -->
+              <div class="add-contact-box sip-phone-content" style="display:none;">
+                <div class="clearfix">
+                  <h4 class="float-left">Contact List</h4>
+                  <div class="float-right"><a href="#" id="keypadBtn"><i class="ion ion-ios-keypad"></i></a></div>
+                </div>
+                <div class="search-contact">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <div class="contact-list">
+                  <div class="contact-list-container">
+                    <div class="aplhabet">
+                      A
+                    </div>
+                    <div class="contact-list-box">
+                      <ul class="list-unstyled">
+                        <li>Alpha</li>
+                        <li>Alpha</li>
+                        <li>Alpha</li>
+                        <li>Alpha</li>
+                        <li>Alpha</li>
+                        <li>Alpha</li>
+                        <li>Alpha</li>
+                        <li>Alpha</li>
+                        <li>Alpha</li>
+                        <li>Alpha</li>
+                        <li>Alpha</li>
+                        <li>Alpha</li>
+                        <li>Alpha</li>
+                        <li>Alpha</li>
+                        <li>Alpha</li>  
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="contact-list-container">
+                    <div class="aplhabet">
+                      B
+                    </div>
+                    <div class="contact-list-box">
+                      <ul class="list-unstyled">
+                        <li>Bille</li>
+                        <li>Bille</li>
+                        <li>Bille</li>
+                        <li>Bille</li>
+                        <li>Bille</li>
+                        <li>Bille</li>
+                        <li>Bille</li>
+                        <li>Bille</li>
+                        <li>Bille</li>
+                        <li>Bille</li>
+                        <li>Bille</li>
+                        <li>Bille</li>
+                        <li>Bille</li>
+                        <li>Bille</li>
+                        <li>Bille</li>  
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
           <div class="col-xl-9 col-sm-8">
       
             <!-- image  -->
@@ -353,6 +428,7 @@
                 </div>
               </div>
             </div>
+
             <!-- Form  -->
             <div id="crmFrom" style="display:none;">
               <!-- Content Header (Page header) -->
@@ -502,8 +578,9 @@
         $(".sip-phone").addClass("call-connent buzzing");
         $(".dialed-number").html(val);
         $("#crmFrom").slideDown();
+        $("#dialerInput").val("");
   
-        setTimeout(function(){ 
+        setTimeout(function(){
           $(".connection-time").html('Connected <span id="minute-box">00</span>: <span id="second-box">00</span>');
           $('.sip-phone').removeClass("buzzing");
           $('.sip-phone-action-btns-container').removeClass("disabled");
@@ -540,6 +617,7 @@
   
     const getTimerSeconds = (counter) => {
       let secondCounter = counter % 60;
+      $(".second-box").html()
       document.getElementById("second-box").innerHtml =
         secondCounter < 10 ? `0${secondCounter}` : `${secondCounter}`;
       return secondCounter < 10 ? `0${secondCounter}` : `${secondCounter}`;
@@ -560,6 +638,35 @@
       document.getElementById("second-box").innerHTML = seconds;
       counter = counter + 1;
     }, 1000);
+  
+
+  function addContact(){
+    $(".keypad-content").hide();
+    $(".add-contact-box").show();
+  }
+  $("#keypadBtn").click(function(){
+    $(".keypad-content").show();
+    $(".add-contact-box").hide();
+  });
+  $("#keypadConntectBtn").click(function(){
+    $(".keypad-content").show();
+    $(".call-connection").hide();
+    $(".sip-phone").addClass("dialer-box");
+    $(".sip-phone").removeClass("call-connent");
+    $(".connected-client-box").show();
+    $('#dialerInput').focus();
+  });
+  $(".connected-client-box").click(function(){
+    $(".keypad-content").hide();
+    $(".call-connection").show();
+    $(".sip-phone").removeClass("dialer-box");
+    $(".sip-phone").addClass("call-connent");
+    $(".connected-client-box").hide();
+  });
+
+  $(".sip-phoneBtn").click(function(){
+    $(this).toggleClass("active");
+  });
   
   </script>
 </body>
