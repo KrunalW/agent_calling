@@ -353,6 +353,11 @@ audio{width:220px;}
 .connected-client-box{background-color: #0ba26a;padding: 5px; display: none; cursor: pointer;}
 .sip-phone-content{padding: 15px;}
 
+@media (max-width:768px) {
+  .sip-phone.dialer-box{margin-left: 15px; margin-right: 15px;}
+  .agent-box img{width: 100%;}
+}
+
 /* Wobble Top */
 @-webkit-keyframes buzzing {
   10% {
@@ -482,8 +487,15 @@ animation: typewriter 8s steps(44) 1s infinite normal both,
 from{border-right-color: rgba(255, 255, 255, 0.75);}
 to{border-right-color: transparent;}
 }
-.agent-text{position: relative;background: #768dbf;padding: 40px;border-radius: 100%;width: 320px;height: 170px;top: 110px;color: #FFF;left: -20px;}
+.agent-text{background: #768dbf;padding: 40px;border-radius: 100%;width: 320px;height: 170px;color: #FFF; margin: auto;position: relative;}
+@media (max-width:767px) {
+  .agent-text{margin-top: 50px;}
+  .agent-text::before{content: '';border-bottom: 50px solid #768dbf;border-right: 30px solid transparent;border-left: 30px solid transparent;position: absolute;left: 0;top: -36px;right: 0;width: 50px;margin: auto;}
+}
+@media (min-width:768px) {
+  .agent-text{top: 110px;left: -20px;}
 .agent-text::before{content: '';border-bottom: 20px solid transparent;border-right: 80px solid #768dbf;border-top: 20px solid transparent;position: absolute;left: -73px;top: 67px;}
+}
 @media (min-width:768px) {
 .agent-box img{width: 400px; float: left;}
 .agent-text{float: left;}
