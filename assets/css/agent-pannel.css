@@ -345,7 +345,7 @@ audio{width:220px;}
 .sip-phone-action-btns-box:hover{background-color: #FFF;}
 .sip-phone-action-btns-box.active{background-color: rgba(40, 65, 92); color: #FFF;}
 .sip-phone-action-btns-box.active:hover{background-color: #082747;color: #EA7F24;}
-.sip-phone-action-btns-box.active::before{content: '';height: 58px;width: 5px;background: #FFF;position: absolute;top: 10px;transform: rotate(130deg);left: 35px; transition: all ease .4s;}
+.sip-phone-action-btns-box.active::before{content: '';height: 58px;width: 5px;background: #FFF;margin: auto;position: absolute;top: 0;transform: rotate(130deg);left: 0;bottom: 0;transition: all ease .4s;right: 0;}
 .sip-phone-action-btns-box.active:hover::before{background: #EA7F24;}
 
 .call-connection{text-align: center;margin: 60px 0 15px;}
