@@ -341,10 +341,13 @@ audio{width:220px;}
 .keypad-content .call-icon{text-align: center;background: #25C565;border-radius: 30px;color: #FFF;padding: 10px 40px;display: inline-block; cursor: pointer;}
 .keypad-content .call-icon svg{width: 25px;height: 25px;}
 .sip-phone-action-btns-container{text-align: center;font-size: 14px;color: #FFF; margin: 80px 0;}
-.sip-phone-action-btns-box{background-color: rgba(40, 65, 92, 0.30);padding: 14px 5px;color: #EA7F24;border-radius: 20px 20px 0;font-size: 34px;display: block; transition: all ease .4s;}
+.sip-phone-action-btns-box{background-color: rgba(40, 65, 92, 0.30);padding: 14px 5px;color: #EA7F24;border-radius: 20px 20px 0;font-size: 34px;display: block;transition: all ease .4s;position: relative;}
 .sip-phone-action-btns-box:hover{background-color: #FFF;}
 .sip-phone-action-btns-box.active{background-color: rgba(40, 65, 92); color: #FFF;}
 .sip-phone-action-btns-box.active:hover{background-color: #082747;color: #EA7F24;}
+.sip-phone-action-btns-box.active::before{content: '';height: 58px;width: 5px;background: #FFF;position: absolute;top: 10px;transform: rotate(130deg);left: 35px; transition: all ease .4s;}
+.sip-phone-action-btns-box.active:hover::before{background: #EA7F24;}
+
 .call-connection{text-align: center;margin: 60px 0 15px;}
 .call-connection .call-icon{text-align: center;background: #C52525;border-radius: 30px;color: #FFF;padding: 12px 45px;display: inline-block; cursor: pointer;}
 .call-connection .call-icon:hover{background: #d06d1a; color: #FFF;}

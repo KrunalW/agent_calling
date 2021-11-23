@@ -305,9 +305,9 @@
                   <div class="row mb-3">
                     <div class="col-4">
                       <a href="#" class="sip-phone-action-btns-box sip-phoneBtn">
-                        <i class="fas fa-microphone-alt-slash"></i>
+                        <i class="fas fa-microphone-alt"></i>
                       </a>
-                      Mute
+                      <span class="sip-phone-text">Mute</span>
                     </div>
                     <div class="col-4">
                       <a id="keypadConntectBtn" href="#" class="sip-phone-action-btns-box">
@@ -319,7 +319,7 @@
                       <a href="#" class="sip-phone-action-btns-box sip-phoneBtn">
                         <i class="fas fa-pause-circle"></i>
                       </a>
-                      Hold
+                      <span class="sip-phone-text">Hold</span> 
                     </div>
                   </div>
                   <div class="row">
@@ -339,7 +339,7 @@
                       <a href="#" class="sip-phone-action-btns-box sip-phoneBtn">
                         <i class="fas fa-user-friends"></i>
                       </a>
-                      Consult
+                      <span class="sip-phone-text">Consult</span>
                     </div>
                   </div>
                 </div>
@@ -666,6 +666,27 @@
 
   $(".sip-phoneBtn").click(function(){
     $(this).toggleClass("active");
+    var text = $(this).parent().find(".sip-phone-text");
+    if(text.text() === "Mute"){
+      text.text("Unmute");
+    }
+    else if(text.text() === "Unmute"){
+      text.text("Mute");
+    }
+
+    if(text.text() === "Hold"){
+      text.text("Unhold");
+    }
+    else if(text.text() === "Unhold"){
+      text.text("Hold");
+    }
+
+    if(text.text() === "Consult"){
+      text.text("End Consult");
+    }
+    else if(text.text() === "End Consult"){
+      text.text("Consult");
+    }
   });
   
   </script>
