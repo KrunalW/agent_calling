@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="plugins/datatables-select/css/select.bootstrap4.min.css">
   <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- Select2 -->
@@ -217,13 +218,12 @@
         <!-- check user selected campaign -->
         <div class="text-center mt-5">
           <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-default active">
-              <input type="radio" class="vaani_action" name="options" id="readybtn" autocomplete="off" value="ready"
-                onclick="agent_activity_update(this)"><i class="fas fa-play"></i> Ready
+            <label id="readyCall" class="btn btn-default active">
+              <input type="radio" name="options" autocomplete="off" value="ready"
+               ><i class="fas fa-play"></i> Ready
             </label>
-            <label class="btn btn-default">
-              <input type="radio" class="vaani_action" name="options" id="pasueBtn" autocomplete="off" value="pause"
-                onclick="agent_activity_update(this)"><i class="fas fa-pause"></i> Pause
+            <label id="notReadyCall" class="btn btn-default">
+              <input type="radio" name="options" autocomplete="off" value="not ready"><i class="fas fa-pause"></i> Not Ready
             </label>
           </div>
         </div>
@@ -246,16 +246,20 @@
               For on connenting or connected use class = "call-connent"
             -->
             <div class="sip-phone dialer-box">
+              <!-- **********************
+                After call connected displaying connection view on other screen.
+              -->
+              <div class="clearfix connected-client-box">
+                <div class=" float-left">
+                  <i class="fas fa-arrow-left"></i> <span class="dialed-number"></span> <!-- 1234567890 -->
+                </div>
+                <div class="connection-time float-right">
+                    <!-- Connected <span id="minute-box">00</span>: <span id="second-box">00</span>  -->
+                </div>
+              </div>
+              
               <!-- keypad  -->
               <div class="keypad-content">
-                <div class="clearfix connected-client-box">
-                  <div class="dialed-number float-left">
-                    <!-- 1234567890 -->
-                  </div>
-                  <div class="connection-time float-right">
-                      <!-- Connected <span id="minute-box">00</span>: <span id="second-box">00</span>  -->
-                  </div>
-                </div>
                 <div class="sip-phone-content">
                   <div class="add-contact">
                     <a href="#" onclick="addContact()"><i class="fas fa-address-book"></i> Add Contact</a>
@@ -412,6 +416,44 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Add Contact Box  -->
+              <div class="not-ready-reason-container" style="display:none;">
+                <div class="header-list">
+                  <h4>Break Reason</h4>
+                </div>
+                <div class="sip-phone-content">
+                  <div class="not-ready-reason-list">
+                    <div class="form-group clearfix">
+                      <div class="icheck-primary d-inline">
+                        <input type="radio" id="breakRadio1" name="r1">
+                        <label for="breakRadio1"> Bio Break</label>
+                      </div>
+                    </div>
+  
+                    <div class="form-group clearfix">
+                      <div class="icheck-primary d-inline">
+                        <input type="radio" id="breakRadio2" name="r1">
+                        <label for="breakRadio2"> Lunch Break</label>
+                      </div>
+                    </div>
+  
+                    <div class="form-group clearfix">
+                      <div class="icheck-primary d-inline">
+                        <input type="radio" id="breakRadio3" name="r1">
+                        <label for="breakRadio3"> Tea Break</label>
+                      </div>
+                    </div>
+  
+                    <div class="form-group clearfix">
+                      <div class="icheck-primary d-inline">
+                        <input type="radio" id="breakRadio4" name="r1">
+                        <label for="breakRadio4"> Training</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -423,7 +465,7 @@
                 <div class="agent-box">
                   <img src="assets/img/agent-male.gif" alt="agent">
                   <div class="agent-text">
-                    <p class="line-1 anim-typewriter">I'm ready to take a call</p>
+                    <p id="call-action-btn" class="mt-3">I'm <span class="text-danger">not ready</span> <span class="line-1 anim-typewriter">  to take a call. Click Ready Button.</span></p>
                   </div>
                 </div>
               </div>
@@ -525,7 +567,6 @@
     </div>
     <!-- /.content-wrapper -->
 
-
     <!-- Main Footer -->
     <footer class="main-footer">
       <strong>Copyright &copy; 2021 <a href="#">eDAS</a>.</strong>
@@ -537,7 +578,7 @@
   </div>
   <!-- ./wrapper -->
 
-
+<!-- , lunch, tea break, training. -->
   <!-- REQUIRED SCRIPTS -->
 
   <!-- jQuery -->
@@ -549,147 +590,7 @@
 
   <!-- agent crm purposes -->
   <script src="assets/js/agent_script.js"></script>
-
-  <script>
-    $("#dialerInput").keypress(function (e) {
-      // alert("Hi");
-      var charCode = (e.which) ? e.which : event.keyCode    
-      if (String.fromCharCode(charCode).match(/[^0-9]/g))    
-      return false;
-    });
-  
-    $(".number").click(function (event) {
-      let text = $(this).text();
-      var val = $('#dialerInput').val();
-      if (val.length < 10) {
-        $("#dialerInput").val(val+text).focus();
-      }
-    });
-  
-    function phoneValidation() {
-      var val = $('#dialerInput').val();
-      if (val.length < 10) {
-        notification("#msg", "Please enter valid number", "alert-danger");
-      }else{
-        notification("#msg", "Connenting...", "alert-warning");
-        $(".keypad-content, #agentDailerImgBox").hide();
-        $(".call-connection").show();
-        $(".sip-phone").removeClass("dialer-box");
-        $(".sip-phone").addClass("call-connent buzzing");
-        $(".dialed-number").html(val);
-        $("#crmFrom").slideDown();
-        $("#dialerInput").val("");
-  
-        setTimeout(function(){
-          $(".connection-time").html('Connected <span id="minute-box">00</span>: <span id="second-box">00</span>');
-          $('.sip-phone').removeClass("buzzing");
-          $('.sip-phone-action-btns-container').removeClass("disabled");
-          notification("#msg", "Call connected", "alert-success");
-        }, 5000);
-      } 
-    }
-  
-    $("#dialerInput").keypress(function(event){
-      var keycode = (event.keyCode ? event.keyCode : event.which);
-      if(keycode == '13'){ 
-        phoneValidation();  
-      }
-    });
-  
-    function callDialedNumber() {
-      phoneValidation(); 
-    }
-  
-    $(".remove-btn").click(function () {
-      var val = $('#dialerInput').val();
-      var tmp= val.slice(0,-1);
-      $("#dialerInput").val(tmp).focus();
-    });
-  
-    // Timer 
-    let counter = 0;
-    let seconds = "00";
-    let minutes = "00";
-    const getTimerMinutes = (counter) => {
-      let minuteCounter = Math.floor(counter / 60);
-      return minuteCounter < 10 ? `0${minuteCounter}` : `${minuteCounter}`;
-    };
-  
-    const getTimerSeconds = (counter) => {
-      let secondCounter = counter % 60;
-      $(".second-box").html()
-      document.getElementById("second-box").innerHtml =
-        secondCounter < 10 ? `0${secondCounter}` : `${secondCounter}`;
-      return secondCounter < 10 ? `0${secondCounter}` : `${secondCounter}`;
-    };
-    const setCount = () => {
-      console.log("here");
-      seconds = getTimerSeconds(counter);
-      minutes = getTimerMinutes(counter);
-  
-      document.getElementById("minute-box").innerHtml = seconds;
-      counter = counter + 1;
-    };
-  
-    var intervalId = window.setInterval(function () {
-      seconds = getTimerSeconds(counter);
-      minutes = getTimerMinutes(counter);
-      document.getElementById("minute-box").innerHTML = minutes;
-      document.getElementById("second-box").innerHTML = seconds;
-      counter = counter + 1;
-    }, 1000);
-  
-
-  function addContact(){
-    $(".keypad-content").hide();
-    $(".add-contact-box").show();
-  }
-  $("#keypadBtn").click(function(){
-    $(".keypad-content").show();
-    $(".add-contact-box").hide();
-  });
-  $("#keypadConntectBtn").click(function(){
-    $(".keypad-content").show();
-    $(".call-connection").hide();
-    $(".sip-phone").addClass("dialer-box");
-    $(".sip-phone").removeClass("call-connent");
-    $(".connected-client-box").show();
-    $('#dialerInput').focus();
-  });
-  $(".connected-client-box").click(function(){
-    $(".keypad-content").hide();
-    $(".call-connection").show();
-    $(".sip-phone").removeClass("dialer-box");
-    $(".sip-phone").addClass("call-connent");
-    $(".connected-client-box").hide();
-  });
-
-  $(".sip-phoneBtn").click(function(){
-    $(this).toggleClass("active");
-    var text = $(this).parent().find(".sip-phone-text");
-    if(text.text() === "Mute"){
-      text.text("Unmute");
-    }
-    else if(text.text() === "Unmute"){
-      text.text("Mute");
-    }
-
-    if(text.text() === "Hold"){
-      text.text("Unhold");
-    }
-    else if(text.text() === "Unhold"){
-      text.text("Hold");
-    }
-
-    if(text.text() === "Consult"){
-      text.text("End Consult");
-    }
-    else if(text.text() === "End Consult"){
-      text.text("Consult");
-    }
-  });
-  
-  </script>
+  <script src="assets/js/dialer.js"></script>
 </body>
 
 </html>

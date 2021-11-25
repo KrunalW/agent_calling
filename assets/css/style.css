@@ -20,6 +20,8 @@ p{margin-bottom: 5px;}
 .form-group{position: relative;margin-bottom: 25px;}
 .invalid-feedback{position: absolute; bottom: -18px;}
 
+.font-lg{font-size: 24px !important;}
+
 .sidebar{padding-right: 0; padding-bottom: 20px;}
 .sidebar-mini.sidebar-collapse .brand-link .brand-image{display: none;}
 .brand-link .brand-logo{display: none; width: 24px; margin-left: 15px;}
@@ -90,7 +92,6 @@ p{margin-bottom: 5px;}
 .disabled{opacity: .5;}
 .checkBox{margin-bottom: 40px;}
 .form-label{position: absolute;top: 7px;margin: auto;padding: 0px;left: 14px;color: #7e7e7e;background: #ffffff;font-weight: 400!important;z-index: 0;transition: all ease .4s; pointer-events: none;}
-.form-group{margin-bottom: 40px;}
 .form-control{transition: all ease .4s; border-radius: 0;height: calc(2.25rem + 5px);border: 1px solid #dee6ee;}
 .form-control:focus{box-shadow: 2px 2px 2px 0px #b1d4fa;}
 .form-control:focus ~ .form-label, .form-control:valid ~ .form-label{top: -14px;left: 5px;font-size: 12px;color: #000;font-weight: 700!important;padding: 3px 5px;}
